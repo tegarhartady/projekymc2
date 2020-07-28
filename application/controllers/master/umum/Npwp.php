@@ -17,4 +17,16 @@ class Npwp extends CI_Controller
         // $data['banker'] =  $this->load->model('model_bank');
         $this->load->view("master/umum/npwpgroup/V_npwpgroup", $data);
     }
+    function tambah()
+    {
+        $kodenpwp = $this->input->post('kodenpwp');
+        $namanpwp = $this->input->post('namanpwp');
+        $nppwp = $this->input->post('nppwp');
+        $alamat = $this->input->post('alamat');
+        $kota = $this->input->post('kota');
+        $deskripsi = $this->input->post('deskripsi');
+        $aktif = $this->input->post('aktif');
+        $this->model_npwpgroup->input_data($kodenpwp, $namanpwp, $nppwp, $alamat, $kota, $deskripsi, $aktif);
+        redirect('master/umum/npwp');
+    }
 }

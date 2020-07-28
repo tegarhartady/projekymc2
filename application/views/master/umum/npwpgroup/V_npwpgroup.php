@@ -39,7 +39,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title"><?= $title; ?></h3>
-                    <div id="right"> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                    <div class="header text-right pull-right"> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                             tambah
                         </button>
                     </div>
@@ -118,15 +118,20 @@
                             <div class="form-group row">
                                 <label for="inputPassword3" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
-                                    <textarea name="alamat" id="alamat" cols="30" rows="10"></textarea>
+                                    <textarea name="alamat" id="alamat" cols="50" rows="10" required></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword3" class="col-sm-2 col-form-label">Kota</label>
                                 <div class="col-sm-10">
-                                    <select name="kota" id="kota">
-
-                                    </select>
+                                    <input type="text" class="form-control" id="kota" name="kota" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword3" class="col-sm-2 col-form-label">Deskripsi</label>
+                                <div class="col-sm-10">
+                                    <!-- <input type="text" class="form-control" id="kota" name="kota" required> -->
+                                    <textarea name="deskripsi" id="deskripsi" cols="50" rows="10"></textarea>
                                 </div>
                             </div>
                             <fieldset class="form-group">
@@ -134,10 +139,10 @@
                                     <label class="col-form-label col-sm-2 pt-0">Aktif ? </label>
                                     <div class="col-sm-10">
                                         <div class="form-check">
-                                            <label><input type="radio" name="aktif" value="Y"> Iya</label>
+                                            <label><input type="radio" name="aktif" value="1"> Iya</label>
                                         </div>
                                         <div class="form-check">
-                                            <label><input type="radio" name="aktif" value="N"> Tidak</label>
+                                            <label><input type="radio" name="aktif" value="0"> Tidak</label>
                                         </div>
                                     </div>
                                 </div>

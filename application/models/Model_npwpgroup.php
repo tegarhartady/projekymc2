@@ -34,4 +34,10 @@ class Model_npwpgroup extends CI_Model
         FROM npwpgroup");
         return $data->result();
     }
+
+    function input_data($kodenpwp, $namanpwp, $nppwp, $alamat, $kota, $deskripsi, $aktif)
+    {
+        $tambah = $this->db->query("INSERT INTO npwpgroup (npwpgroupcode, npwpgroupname,npwp,address,city,description, isactive) VALUES ('$kodenpwp', '$namanpwp', '$nppwp', '$alamat', '$kota', '$deskripsi', '$aktif')");
+        return $tambah;
+    }
 }

@@ -39,7 +39,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title"><?= $title; ?></h3>
-                    <div class="pull-right"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <div class="header text-right pull-right"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             tambah
                         </button>
                     </div>

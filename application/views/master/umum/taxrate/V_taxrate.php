@@ -38,7 +38,11 @@
             <!-- Main content -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"><?= $title; ?></h3>
+                    <h1 class="card-title"><?= $title; ?></h1>
+                    <div class="header text-right pull-right"> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            tambah
+                        </button>
+                    </div>
                 </div>
                 <div class="table-responsive card-body">
                     <table id="table" class="table table-striped table-bordered table-hover">
@@ -78,6 +82,76 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
+
+        <!-- Modal Tambah Start -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Tax Rate</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="<?php echo site_url() . '/master/umum/taxrate/tambah' ?>" method="post" id="myForm">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Tax Rate</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="kodetaxrate" name="kodetaxrate" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputName" class="col-sm-2 col-form-label">Nama Tax Rate</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="namataxrate" name="namataxrate" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPercent" class="col-sm-2 col-form-label">Tax Percent</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="taxpercent" name="taxpercent" required> %
+                                    <input type="hidden" name="taxpercenttest" id="taxpercenttest">
+                                    <!-- <o-percent-input attr="percent" label="Percentage" data="100" read-only="no" required="yes"></o-percent-input> -->
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="taxacct" class="col-sm-2 col-form-label">Tax Acct</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="taxacct" name="taxacct" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="desc" class="col-sm-2 col-form-label">Deskripsi</label>
+                                <div class="col-sm-10">
+                                    <!-- <input type="text" class="form-control" id="taxdescripsi" name="taxdescripsi" required> -->
+                                    <textarea name="taxdeskripsi" id="taxdeskripsi" cols="50" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-form-label col-sm-2 pt-0">Aktif ? </label>
+                                    <div class="col-sm-10">
+                                        <div class="form-check">
+                                            <label><input type="radio" name="aktif" value="1"> Iya</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <label><input type="radio" name="aktif" value="0"> Tidak</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <input type="submit" class="btn btn-primary"></input>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Modal Tambah Finish -->
         <?php $this->load->view('master/template/sidebar.php'); ?>
 
         <!-- Control Sidebar -->
@@ -90,6 +164,12 @@
 
     <!-- jQuery -->
     <?php $this->load->view('master/template/js.php'); ?>
+    <script type="text/javascript">
+        document.getElementById('myForm').onsubmit = function() {
+            document.getElementById('myFraction').value =
+                document.getElementById('myPercent').value / 100;
+        }
+    </script>
 </body>
 
 </html>

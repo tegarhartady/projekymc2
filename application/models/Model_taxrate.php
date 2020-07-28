@@ -33,4 +33,9 @@ class Model_taxrate extends CI_Model
                                 FROM taxrate");
         return $data->result();
     }
+    function input_data($kodetaxrate, $namataxrate, $taxpercent, $taxacct, $taxdeskripsi, $aktif)
+    {
+        $tambah = $this->db->query("INSERT INTO taxrate (taxratecode, taxratename, taxpercent, taxacct, description,isactive) VALUES ('$kodetaxrate','$namataxrate','$taxpercent' ,'$taxacct','$taxdeskripsi','$aktif' )");
+        return $tambah;
+    }
 }

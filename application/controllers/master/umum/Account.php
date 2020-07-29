@@ -22,4 +22,14 @@ class Account extends CI_Controller
     {
         $data['title'] = 'ACCOUNT TKU';
     }
+
+    function tambah()
+    {
+        $kodeacc = $this->input->post('kodeacc');
+        $namaacc = $this->input->post('namaacc');
+        $deskripsi = $this->input->post('deskripsi');
+        $aktif = $this->input->post('aktif');
+        $this->model_account->input_data($kodeacc, $namaacc, $deskripsi, $aktif);
+        redirect('master/umum/account');
+    }
 }

@@ -47,4 +47,9 @@ class Model_account extends CI_Model
         inner join tku b on b.tkurowid = a.tkurowid
         where a.accountrowid = '" . $id . "'");
     }
+    function input_data($kodeacc, $namaacc, $deskripsi, $aktif)
+    {
+        $tambah = $this->db->query("INSERT INTO account (accountcode, accountname, description, isactive) VALUES ('$kodeacc','$namaacc','$deskripsi','$aktif' )");
+        return $tambah;
+    }
 }

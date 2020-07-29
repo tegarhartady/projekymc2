@@ -49,26 +49,33 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Kode account</th>
-                                <th>Nama name</th>
-                                <th>Description</th>
+                                <th>Wilayah</th>
+                                <th>Kode Cabang</th>
+                                <th>Nama Cabang</th>
+                                <th>Alamat</th>
+                                <th>Telepon</th>
+                                <th>Fax</th>
                                 <th>Aktif ?</th>
-                                <th>action</th>
+
                             </tr>
                         </thead>
                         <tbody>
 
                             <?php
                             $no = 1;
-                            foreach ($acc as $hasil) {
+                            foreach ($cabang as $hasil) {
                             ?>
 
                                 <tr>
-                                    <td><?php echo $no++ ?></td>
-                                    <td><?php echo $hasil->kodeakun ?></td>
-                                    <td><?php echo $hasil->namaakun ?></td>
-                                    <td><?php echo $hasil->deksripsi ?></td>
+                                    <td><?php echo $no++; ?></td>
+                                    <td><?php echo $hasil->branchnamaprovinsi ?></td>
+                                    <td><?php echo $hasil->branchkode ?></td>
+                                    <td><?php echo $hasil->namabranch ?></td>
+                                    <td><?php echo $hasil->alamatbranch ?></td>
+                                    <td><?php echo $hasil->branchnomorhp ?></td>
+                                    <td><?php echo $hasil->branchnomorfax ?></td>
                                     <td><?php echo $hasil->aktif ?></td>
+
                                 </tr>
 
                             <?php } ?>
@@ -79,20 +86,19 @@
             </div>
             <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
 
         <!-- Modal Tambah Start -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Account</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Bank</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- <form action="<?php echo site_url() . '/master/umum/account/tambah' ?>" method="post">
+                        <form action="<?php echo site_url() . '/master/umum/bank/tambah' ?>" method="post">
                             <div class="form-group row">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Kode Bank</label>
                                 <div class="col-sm-10">
@@ -122,48 +128,14 @@
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <input type="submit" class="btn btn-primary"></input>
                             </div>
-                        </form> -->
-                        <form method="POST" action="<?php echo site_url() . '/master/umum/account/tambah' ?>">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Kode Account</label>
-                                    <input type="text" class="form-control" id="kodeacc" name="kodeacc" placeholder="Masukan Kode account">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Nama Account</label>
-                                    <input type="text" class="form-control" id="namaacc" name="namacc" placeholder="Masukan Nama Account">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Deskripsi</label>
-                                    <!-- <input type="text" class="form-control" id="namaacc" name="namacc" placeholder="Masukan Nama Account"> -->
-                                    <textarea name="deskripsi" id="deskripsi" cols="60" rows="10"></textarea>
-                                </div>
-                                <fieldset class="form-group">
-                                    <div class="row">
-                                        <label class="col-form-label col-sm-2 pt-0">Aktif ? </label>
-                                        <div class="col-sm-10">
-                                            <div class="form-check">
-                                                <input type="radio" name="aktif" value="True"> Iya
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="radio" name="aktif" value="False"> Tidak
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
-                            <!-- /.card-body -->
-
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
                         </form>
                     </div>
 
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Modal Tambah Finish -->
+        <!-- /.content-wrapper -->
         <?php $this->load->view('master/template/sidebar.php'); ?>
 
         <!-- Control Sidebar -->

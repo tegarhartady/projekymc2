@@ -21,6 +21,6 @@ class Welcome extends CI_Controller
 	 */
 	public function index()
 	{
-		$this->load->view('master/dashboard');
+		$this->load->view('v_login');
 	}
 }

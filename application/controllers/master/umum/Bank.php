@@ -24,7 +24,7 @@ class Bank extends CI_Controller
         $namabank = $this->input->post('namabank');
         $aktif = $this->input->post('aktif');
         $this->model_bank->input_data($kodebank, $namabank, $aktif);
-        redirect('master/umum/bank/index');
+        redirect('master/umum/bank');
     }
     function edit()
     {

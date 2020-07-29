@@ -31,6 +31,8 @@
 <script src="<?php echo base_url('assets/dist/js/pages/dashboard.js') ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url('assets/dist/js/demo.js') ?>"></script>
+<script src="<?php echo base_url('assets/dist/js/adminlte.min.js') ?>"></script>
+
 
 <script type="text/javascript" src="<?php echo base_url('assets/dist/js/jquery-3.3.1.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/dist/js/bootstrap.min.js') ?>"></script>

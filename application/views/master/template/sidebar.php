@@ -18,7 +18,7 @@ $menu = $this->uri->segment(1);
                 <img src="<?php echo base_url('assets/dist/img/user2-160x160.jpg') ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">Admin</a>
             </div>
         </div>
 
@@ -67,6 +67,12 @@ $menu = $this->uri->segment(1);
                             <a href="<?= site_url('master/umum/account') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Account</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url('master/umum/cabang') ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Cabang</p>
                             </a>
                         </li>
                     </ul>

@@ -14,5 +14,11 @@ class M_login extends CI_Model
                                     INNER JOIN sec_users_groups b ON b.login = a.login
                                 WHERE a.login = '$username' AND a.pswd = '$password'");
         return $query;
+        // $jamupdate = $this->db->query("UPDATE sec_users SET lastlogin ");
+
+    }
+    function jamlogin($username)
+    {
+        $jamupdate = $this->db->query("UPDATE sec_users SET lastlogin = GETDATE() WHERE login = '$username'");
     }
 }

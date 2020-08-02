@@ -1,8 +1,3 @@
-<?php
-$menu = $this->uri->segment(1);
-
-?>
-
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
@@ -18,7 +13,7 @@ $menu = $this->uri->segment(1);
                 <img src="<?php echo base_url('assets/dist/img/user2-160x160.jpg') ?>" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Admin</a>
+                <a href="#" class="d-block"><?php echo $this->session->userdata('ses_nama'); ?></a>
             </div>
         </div>
 
@@ -27,55 +22,109 @@ $menu = $this->uri->segment(1);
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <li <?= $this->uri->segment(1) == 'welcome' || $this->uri->segment(1) == '' ? 'class=" nav-item active"' : '' ?>>
-                    <a href="<?= site_url('welcome') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard
-                            <!-- <i class="right fas fa-angle-left"></i> -->
-                        </p>
+                <?php if ($this->session->userdata('akses') == '1') : ?>
+                    <li>
+                        <a href="<?= site_url('dashboard') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Dashboard
+                                <!-- <i class="right fas fa-angle-left"></i> -->
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Master
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= site_url('master/umum/bank') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Bank</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url('master/umum/taxrate') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Taxrate</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url('master/umum/npwp') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>NPWP Group</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url('master/umum/account') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Account</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url('master/umum/cabang') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Cabang</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- untuk ke dua  -->
+                <?php elseif ($this->session->userdata('akses') == '7') : ?>
+                    <li>
+                        <a href="<?= site_url('dashboard') ?>" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Dashboard
+                                <!-- <i class="right fas fa-angle-left"></i> -->
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Master
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= site_url('master/umum/bank') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Bank</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url('master/umum/taxrate') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Taxrate</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url('master/umum/npwp') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>NPWP Group</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url('master/umum/account') ?>" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Account</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
+                <li class="nav-item">
+                    <a href="<?= site_url('login/logout') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>Logout</p>
                     </a>
-                </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Master
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= site_url('master/umum/bank') ?>" class="nav-link <?= ($menu == 'bank') ? 'active' : ''; ?>">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Bank</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url('master/umum/taxrate') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Taxrate</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url('master/umum/npwp') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>NPWP Group</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url('master/umum/account') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Account</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url('master/umum/cabang') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Cabang</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
             </ul>
         </nav>

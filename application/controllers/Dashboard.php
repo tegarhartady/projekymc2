@@ -1,6 +1,9 @@
 <?php
-class Page extends CI_Controller
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class Dashboard extends CI_Controller
 {
+
     function __construct()
     {
         parent::__construct();
@@ -9,8 +12,7 @@ class Page extends CI_Controller
             redirect($url);
         }
     }
-
-    function index()
+    public function index()
     {
         $this->load->view('master/dashboard');
     }
